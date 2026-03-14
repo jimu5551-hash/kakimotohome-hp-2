@@ -14,7 +14,7 @@ export const Contact = () => {
             
             <form action="https://formsubmit.co/info@kakimotohome.com" method="POST" class="contact-form">
               <!-- FormSubmit Configuration -->
-              <input type="hidden" name="_next" value="https://kakimotohome-hp.vercel.app/">
+              <input type="hidden" name="_next" value="https://kakimotohome.com/">
               <input type="hidden" name="_subject" value="【柿本ホーム産業】ウェブサイトからのお問い合わせ">
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_language" value="ja">
