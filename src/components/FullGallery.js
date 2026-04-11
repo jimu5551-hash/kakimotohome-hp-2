@@ -25,6 +25,21 @@ export const FullGallery = () => {
             <div class="gallery-grid">
                 <div class="gallery-item card-style">
                   <div class="gallery-image">
+                    <img src="/k-residence-kitchen.jpg" alt="K様邸新築　キッチン収納" loading="lazy" />
+                    <div class="category-badge">キッチン</div>
+                  </div>
+                  <div class="gallery-card-content">
+                    <h4>K様邸新築　キッチン収納</h4>
+                    <p>使い勝手と収納力にこだわった、新築のキッチン収納スペース。</p>
+                    <div class="gallery-tags">
+                        <span>#新築</span>
+                        <span>#キッチン収納</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="gallery-item card-style">
+                  <div class="gallery-image">
                     <img src="/gallery-reform-system-kitchen-new.jpg" alt="キッチンリフォーム" loading="lazy" />
                     <div class="category-badge">キッチン</div>
                   </div>
