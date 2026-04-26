@@ -3,10 +3,11 @@ export const CtaSection = () => {
       <section class="cta-section fade-up">
         <div class="container cta-container">
           <div class="cta-content">
-            <h2 class="cta-title">理想の住まいづくり、<br>まずはご相談ください。</h2>
+            <h2 class="cta-title">理想の住まいづくり<br>まずはご相談ください</h2>
             <p class="cta-desc">
-              新築・リフォーム・外構工事など、<br>
-              お住まいに関することなら何でもお気軽にお問い合わせください。
+              新築・リフォーム・外構工事など<br>
+              お住まいに関することなら何でも<br>
+              お気軽にお問い合わせください
             </p>
           </div>
           <div class="cta-actions">
