@@ -39,17 +39,16 @@ export const CtaSection = () => {
         .cta-container {
           display: flex;
           align-items: center;
-          gap: 4rem;
+          justify-content: center;
+          gap: 6rem;
           background: #fff;
           border-radius: 16px;
-          padding: 3.5rem;
+          padding: 4rem 2rem;
           box-shadow: 0 8px 40px rgba(0,0,0,0.06);
         }
 
         .cta-content {
-          flex: 1;
-          display: flex;
-          justify-content: center;
+          /* intrinsic width */
         }
 
         .cta-text-wrapper {
