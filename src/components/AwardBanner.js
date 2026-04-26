@@ -12,7 +12,7 @@ export const AwardBanner = () => {
               </div>
             </a>
           </div>
-          <p class="award-banner-desc">ホームプロにおいて、お客様からの高い評価をいただき、顧客満足優良会社として表彰されました。</p>
+          <p class="award-banner-desc">ホームプロにおいて、お客様からの高い評価をいただき、顧客満足優良会社として表彰されました</p>
         </div>
       </div>
     </section>
