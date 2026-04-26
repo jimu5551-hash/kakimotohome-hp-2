@@ -5,11 +5,11 @@ export const Hero = () => {
       <div class="hero-overlay"></div>
         <div class="hero-text-wrapper fade-up delay-200">
           <h1 class="hero-title">
-            理想の暮らしを、<br>カタチに。
+            理想の暮らしを<br>カタチに
           </h1>
           <p class="hero-subtitle">
-            横浜で創業50年。地域密着の家づくり。<br>
-            お客様の理想に誠心誠意お応えします。
+            横浜で創業50年 地域密着の家づくり<br>
+            お客様の理想に誠心誠意お応えします
           </p>
           <div class="hero-cta-wrapper">
              <div class="cta-actions">
