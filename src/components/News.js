@@ -15,7 +15,7 @@ export const News = () => {
                 </svg>
               </div>
               <div class="news-date">2026/04/26</div>
-              <div class="news-title">施工事例写真 トイレリフォームbefore/afterを追加しました</div>
+              <div class="news-title">【リフォーム】トイレリフォーム before/after 施工事例を追加しました</div>
             </a>
 
             <a href="/gallery.html" class="news-item">
