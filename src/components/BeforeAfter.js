@@ -53,6 +53,26 @@ export const BeforeAfter = () => {
             </div>
           </div>
 
+          <!-- Case 3: KS様邸 トイレ -->
+          <div class="ba-case">
+            <div class="ba-case-header">
+              <h3 class="ba-case-title">KS様邸 トイレリフォーム</h3>
+            </div>
+            <div class="ba-compare-wrapper">
+              <div class="ba-bg-blur" style="background-image: url('/施工事例/KS様邸　トイレ　後.jpg')"></div>
+              <img src="/施工事例/KS様邸　トイレ　後.jpg" alt="KS様邸 トイレ 施工後" class="ba-img-after" loading="lazy" />
+              <img src="/施工事例/KS様邸　トイレ　前.jpg" alt="KS様邸 トイレ 施工前" class="ba-img-before" loading="lazy" />
+              <div class="ba-label ba-label-before">Before</div>
+              <div class="ba-label ba-label-after">After</div>
+              <div class="ba-compare-handle">
+                <div class="ba-handle-line"></div>
+                <div class="ba-handle-button">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l-3 3 3 3m8-6l3 3-3 3"></path></svg>
+                </div>
+              </div>
+              <input type="range" min="0" max="100" value="50" class="ba-compare-range" aria-label="Before/After Image Comparison Slider">
+            </div>
+          </div>
 
         </div>
 
@@ -101,7 +121,7 @@ export const BeforeAfter = () => {
       /* ===== Slider Layout ===== */
       .ba-cases-wrapper {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 2rem;
       }
 
