@@ -3,12 +3,14 @@ export const CtaSection = () => {
       <section class="cta-section fade-up">
         <div class="container cta-container">
           <div class="cta-content">
-            <h2 class="cta-title">理想の住まいづくり<br>まずはご相談ください</h2>
-            <p class="cta-desc">
-              新築・リフォーム・外構工事など<br>
-              お住まいに関することなら何でも<br>
-              お気軽にお問い合わせください
-            </p>
+            <div class="cta-text-wrapper">
+              <h2 class="cta-title">理想の住まいづくり<br>まずはご相談ください</h2>
+              <p class="cta-desc">
+                新築・リフォーム・外構工事など<br>
+                お住まいに関することなら何でも<br>
+                お気軽にお問い合わせください
+              </p>
+            </div>
           </div>
           <div class="cta-actions">
             <a href="tel:0120-654-711" class="cta-btn cta-btn-tel">
@@ -46,6 +48,12 @@ export const CtaSection = () => {
 
         .cta-content {
           flex: 1;
+          display: flex;
+          justify-content: center;
+        }
+
+        .cta-text-wrapper {
+          text-align: left;
         }
   
         .cta-title {
