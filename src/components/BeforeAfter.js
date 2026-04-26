@@ -54,7 +54,7 @@ export const BeforeAfter = () => {
           </div>
 
           <!-- Case 3: KS様邸 トイレ -->
-          <div class="ba-case">
+          <div id="ks-toilet-reform" class="ba-case">
             <div class="ba-case-header">
               <h3 class="ba-case-title">KS様邸 トイレリフォーム</h3>
             </div>
