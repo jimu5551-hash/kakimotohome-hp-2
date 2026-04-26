@@ -9,7 +9,7 @@ export const Services = () => {
           <!-- Reform & Rebuilding -->
           <div class="service-card fade-up">
             <div class="service-image-wrapper">
-              <img src="/設楽邸/設楽様邸リビング.jpg" alt="建て替え・リフォーム" class="brighten-img-extra" />
+              <img src="/設楽邸/設楽様邸リビング.jpg?v=2" alt="建て替え・リフォーム" />
             </div>
             <div class="service-content">
               <h3 class="service-title">建て替え・リフォーム</h3>
