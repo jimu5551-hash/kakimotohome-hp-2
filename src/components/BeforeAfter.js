@@ -74,6 +74,27 @@ export const BeforeAfter = () => {
             </div>
           </div>
 
+          <!-- Case 4: SH様邸 キッチン -->
+          <div id="sh-kitchen-reform" class="ba-case">
+            <div class="ba-case-header">
+              <h3 class="ba-case-title">SH様邸 キッチンリフォーム</h3>
+            </div>
+            <div class="ba-compare-wrapper">
+              <div class="ba-bg-blur" style="background-image: url('/施工事例/キッチン交換　後.jpg')"></div>
+              <img src="/施工事例/キッチン交換　後.jpg" alt="SH様邸 キッチン 施工後" class="ba-img-after" loading="lazy" />
+              <img src="/施工事例/キッチン交換　前.jpg" alt="SH様邸 キッチン 施工前" class="ba-img-before" loading="lazy" />
+              <div class="ba-label ba-label-before">Before</div>
+              <div class="ba-label ba-label-after">After</div>
+              <div class="ba-compare-handle">
+                <div class="ba-handle-line"></div>
+                <div class="ba-handle-button">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l-3 3 3 3m8-6l3 3-3 3"></path></svg>
+                </div>
+              </div>
+              <input type="range" min="0" max="100" value="50" class="ba-compare-range" aria-label="Before/After Image Comparison Slider">
+            </div>
+          </div>
+
         </div>
 
         <div class="ba-more-wrapper fade-up delay-300">
