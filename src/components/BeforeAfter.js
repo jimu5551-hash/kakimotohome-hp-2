@@ -147,6 +147,8 @@ export const BeforeAfter = () => {
       }
 
       .ba-case {
+        display: flex;
+        flex-direction: column;
         background: var(--color-bg-white);
         border-radius: 12px;
         overflow: hidden;
@@ -170,8 +172,10 @@ export const BeforeAfter = () => {
       .ba-compare-wrapper {
         position: relative;
         width: 100%;
+        aspect-ratio: 3 / 4;
         overflow: hidden;
         background-color: #1a1a1a;
+        flex-grow: 1;
       }
 
       .ba-bg-blur {
@@ -182,7 +186,8 @@ export const BeforeAfter = () => {
       .ba-img-after {
         display: block;
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover;
         pointer-events: none;
         z-index: 1;
         position: relative;
@@ -323,9 +328,6 @@ export const BeforeAfter = () => {
           gap: 1.5rem;
         }
 
-        .ba-compare-wrapper {
-          aspect-ratio: auto;
-        }
         
         .ba-label {
           padding: 4px 12px;
