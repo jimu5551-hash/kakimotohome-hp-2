@@ -7,6 +7,17 @@ export const News = () => {
         <div class="news-container fade-up delay-100">
           <div class="news-list">
             
+            <a href="/#sh-kitchen-reform" class="news-item">
+              <div class="news-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div class="news-date">2026/06/07</div>
+              <div class="news-title">【リフォーム】キッチンリフォームbefore/after施工事例を追加しました</div>
+            </a>
+
             <a href="/#ks-toilet-reform" class="news-item">
               <div class="news-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
