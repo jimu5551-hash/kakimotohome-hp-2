@@ -15,7 +15,7 @@ export const Footer = () => {
             </p>
             <div class="footer-award">
               <a href="https://www.homepro.jp/kaisha/325246/" target="_blank" rel="noopener noreferrer">
-                <img src="https://www.homepro.jp/popup/image/award/cs_small2024.gif" alt="ホームプロ 顧客満足優良会社 2024" width="160" height="58" loading="lazy">
+                <img src="https://www.homepro.jp/popup/image/award/cs_small2025.gif" alt="ホームプロ 顧客満足優良会社 2025" width="160" height="58" loading="lazy">
               </a>
             </div>
             <div class="social-links">
