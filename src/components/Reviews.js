@@ -72,7 +72,7 @@ export const Reviews = () => {
         </div>
         
         <div class="reviews-footer fade-up">
-          <p>ホームプロでの評価平均 4.8/5.0 (2025年現在)</p>
+          <p>ホームプロでの評価平均 4.9/5.0 (2026年現在)</p>
           <a href="https://www.homepro.jp/kaisha/325246/" target="_blank" rel="noopener noreferrer" style="display:inline-block;"><img src="https://www.homepro.jp/popup/image/award/cs_large2025.gif" alt="ホームプロ 顧客満足優良会社 2025" style="display:block; margin:0 auto; max-width:100%; height:auto;" /></a>
         </div>
       </div>
