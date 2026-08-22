@@ -43,24 +43,64 @@ setTimeout(initHeroAnimation, 100);
 // Initialize Before/After Sliders
 setTimeout(initBeforeAfterSliders, 200);
 
-// Mobile Menu Logic
-const menuToggle = document.querySelector('.mobile-menu-toggle');
+// ============================================================
+// Mobile Menu Logic — iOS Safari完全対応版
+// touchend + click の二重発火を防ぐ実装
+// ============================================================
+const menuToggle = document.querySelector('#hamburger-btn');
 const nav = document.querySelector('.nav');
 
 if (menuToggle && nav) {
-  menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
+  // メニューの開閉トグル処理
+  function toggleMenu() {
+    const isActive = nav.classList.toggle('active');
     menuToggle.classList.toggle('active');
+    // アクセシビリティ: aria-expanded を更新
+    menuToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    // iOS Safari: メニュー開放中はbodyのスクロールを止める
+    document.body.style.overflow = isActive ? 'hidden' : '';
+  }
+
+  function closeMenu() {
+    nav.classList.remove('active');
+    menuToggle.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  // touchend と click の二重発火防止フラグ
+  let touchHandled = false;
+
+  // ① touchend: iOS Safariで確実に反応させる
+  menuToggle.addEventListener('touchend', function(e) {
+    e.preventDefault(); // 後続のclickイベントをキャンセル
+    touchHandled = true;
+    toggleMenu();
+    // 一定時間後にフラグをリセット（念のため）
+    setTimeout(function() { touchHandled = false; }, 600);
+  }, { passive: false });
+
+  // ② click: PC・Android・touchendが効かない場合のフォールバック
+  menuToggle.addEventListener('click', function(e) {
+    if (touchHandled) {
+      // touchendで処理済みのためスキップ
+      touchHandled = false;
+      return;
+    }
+    toggleMenu();
   });
 
-  // Close menu when clicking a link
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-      menuToggle.classList.remove('active');
+  // ナビリンクをタップ/クリックしたらメニューを閉じる
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    link.addEventListener('touchend', function() {
+      closeMenu();
+    }, { passive: true });
+    link.addEventListener('click', function() {
+      closeMenu();
     });
   });
 }
+
 
 // Smooth Scroll for Anchor Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

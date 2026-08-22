@@ -36,7 +36,7 @@ export const Header = () => {
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="tel-phone-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             <span class="mobile-tel-number">0120-654-711</span>
           </a>
-          <button class="mobile-menu-toggle" aria-label="メニューを開く">
+          <button type="button" class="mobile-menu-toggle" id="hamburger-btn" aria-label="メニューを開く" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -246,18 +246,27 @@ export const Header = () => {
         gap: 5px;
         background: none;
         border: none;
+        /* iOS Safari: クリッカブル要素と認識させる */
         cursor: pointer;
-        /* iOS推奨タップ領域 44x44px 確保 */
+        /* iOS推奨タップ領域 44x44px */
         padding: 0.6rem;
         min-width: 44px;
         min-height: 44px;
-        /* iOS Safari 対応 */
+        /* iOS Safari: 300ms遷延を排除しタップを即座に発火 */
+        touch-action: manipulation;
+        /* iOS Safari: タップ時の青いハイライトを制御 */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        /* タップ時のテキスト選択を禁止 */
+        -webkit-user-select: none;
+        user-select: none;
+        /* iOS Safari 外観リセット */
         -webkit-appearance: none;
         appearance: none;
-        /* GPUレイヤーで描画を強制（iOS Safariで浮き上がりを保証） */
+        /* pointer-eventsを明示的に指定（被覆い要素でブロックされないように） */
+        pointer-events: auto;
+        /* GPUレイヤーで描画を強制 */
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
-        /* 確実に前面に出す */
         position: relative;
         z-index: 2001;
       }
@@ -266,14 +275,13 @@ export const Header = () => {
         display: block;
         width: 26px;
         height: 3px;
-        /* フォールバックありの直接指定 */
         background-color: #3d3b38;
         background-color: var(--color-text-primary, #3d3b38);
         border-radius: 2px;
-        transition: all 0.3s ease;
+        transition: transform 0.3s ease, opacity 0.3s ease;
         opacity: 1 !important;
         visibility: visible !important;
-        /* iOS Safari: GPUレイヤーで描画を強制 */
+        pointer-events: none; /* 子要素へのイベントを親に委譲 */
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
       }
