@@ -4,10 +4,10 @@ export const AwardBanner = () => {
       <div class="container">
         <div class="award-banner-inner">
           <div class="award-banner-top">
-            <p class="award-banner-year">2024年度</p>
+            <p class="award-banner-year">2025年度</p>
             <a href="https://www.homepro.jp/kaisha/325246/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block;">
               <div class="award-banner-title-row">
-                <img src="https://www.homepro.jp/popup/image/award/cs_small2024.gif" alt="ホームプロ 顧客満足優良会社 2024" width="160" height="58" class="award-banner-badge" />
+                <img src="https://www.homepro.jp/popup/image/award/cs_small2025.gif" alt="ホームプロ 顧客満足優良会社 2025" width="160" height="58" class="award-banner-badge" />
                 <h3 class="award-banner-title">顧客満足優良会社</h3>
               </div>
             </a>
