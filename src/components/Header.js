@@ -416,11 +416,21 @@ export const Header = () => {
 
       @media (max-width: 768px) {
         .logo-img {
-          height: 50px;
+          height: 44px;
         }
         
         .header-container {
-          padding: 0 1rem;
+          padding: 0 0.8rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo-img {
+          height: 38px;
+        }
+
+        .mobile-tel-number {
+          font-size: 0.95rem;
         }
       }
     </style>
