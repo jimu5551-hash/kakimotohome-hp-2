@@ -87,8 +87,8 @@ body::before {
   opacity: 0.4;
 }
 
-/* モバイルでは重いSVGフィルターを無効化（iOS Safariの描画負荷軽減） */
-@media (max-width: 960px) {
+/* モバイル・タブレットでは重いSVGフィルターを無効化 */
+@media (max-width: 1280px) {
   body::before {
     display: none;
   }

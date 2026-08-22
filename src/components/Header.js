@@ -318,7 +318,14 @@ export const Header = () => {
         flex-shrink: 0;
       }
 
-      @media (max-width: 960px) {
+      /* ================================================================
+         BREAKPOINT: max-width: 1280px でハンバーガーに切替
+         960px → 1280pxに引き上げた理由:
+         iPhone Safariの「デスクトップ用Webサイトを表示」モードの
+         viewport幅が紈4980pxのため、960pxブレークポイントでは
+         ハンバーガーが出なかった
+         ================================================================ */
+      @media (max-width: 1280px) {
         .header-right-mobile {
           display: flex;
         }
