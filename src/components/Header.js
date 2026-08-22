@@ -59,7 +59,11 @@ export const Header = () => {
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         padding: 0.75rem 0;
-        transition: all 0.3s ease;
+        /* iOS Safariバグ対応: transition:allは固定要素の描画を米らすため個別指定 */
+        transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        /* GPU合成層を強制し子要素の描画を安定化 */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
       }
 
       .header-container {
@@ -70,6 +74,8 @@ export const Header = () => {
         justify-content: space-between;
         align-items: center;
         gap: clamp(0.5rem, 1.5vw, 1.5rem);
+        /* iOS Safari: クリップを防いでハンバーガーが素透かしになることを防ぐ */
+        overflow: visible;
       }
 
       /* ---- Logo ---- */
@@ -248,6 +254,9 @@ export const Header = () => {
         /* iOS Safari 対応 */
         -webkit-appearance: none;
         appearance: none;
+        /* GPUレイヤーで描画を強制（iOS Safariで浮き上がりを保証） */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
         /* 確実に前面に出す */
         position: relative;
         z-index: 2001;
@@ -257,25 +266,28 @@ export const Header = () => {
         display: block;
         width: 26px;
         height: 3px;
+        /* フォールバックありの直接指定 */
         background-color: #3d3b38;
         background-color: var(--color-text-primary, #3d3b38);
         border-radius: 2px;
         transition: all 0.3s ease;
-        opacity: 1;
-        visibility: visible;
+        opacity: 1 !important;
+        visibility: visible !important;
+        /* iOS Safari: GPUレイヤーで描画を強制 */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
       }
 
-      /* ================================================================
-         BREAKPOINT: Switch to hamburger menu at 1200px
-         This is intentionally wider than typical to prevent any
-         text-wrapping on mid-size screens with larger font rendering.
-         ================================================================ */
-      /* --- Mobile phone + hamburger group --- */
+      /* ---- Mobile phone + hamburger group ---- */
       .header-right-mobile {
-        display: none;  /* hidden on desktop */
+        display: none;
         align-items: center;
         gap: 0.8rem;
         flex-shrink: 0;
+        /* iOS Safari: GPUレイヤーでコンテナの描画を安定化 */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        overflow: visible;
       }
 
       .mobile-tel {
