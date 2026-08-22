@@ -53,7 +53,8 @@ export const Header = () => {
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 100;
+        /* StickyFooter(998〜999)・FullGallery(1000〜1001)より必ず上に出る */
+        z-index: 2000;
         background-color: rgba(255, 255, 255, 0.95);
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -244,22 +245,22 @@ export const Header = () => {
         padding: 0.6rem;
         min-width: 44px;
         min-height: 44px;
+        /* iOS Safari 対応 */
+        -webkit-appearance: none;
+        appearance: none;
         /* 確実に前面に出す */
         position: relative;
-        z-index: 201;
+        z-index: 2001;
       }
 
       .mobile-menu-toggle span {
         display: block;
         width: 26px;
-        /* 2px→3px: 細すぎて描画されない端末対策 */
         height: 3px;
         background-color: #3d3b38;
-        /* CSS変数が効かない端末向けにフォールバック */
         background-color: var(--color-text-primary, #3d3b38);
         border-radius: 2px;
         transition: all 0.3s ease;
-        /* 確実に表示 */
         opacity: 1;
         visibility: visible;
       }
@@ -304,7 +305,7 @@ export const Header = () => {
 
         .mobile-menu-toggle {
           display: flex;
-          z-index: 201;
+          z-index: 2001;
         }
 
         .nav {
@@ -314,8 +315,8 @@ export const Header = () => {
           width: 100%;
           height: 100vh;
           background-color: white;
-          /* ハンバーガーより低いz-indexで確実に前面に出す */
-          z-index: 200;
+          /* ヘッダー(2000)より低く、StickyFooter(999)より高く */
+          z-index: 1950;
           display: flex;
           justify-content: center;
           align-items: center;
