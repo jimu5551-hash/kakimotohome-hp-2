@@ -39,6 +39,7 @@ export const Header = () => {
           <button class="mobile-menu-toggle" aria-label="メニューを開く">
             <span></span>
             <span></span>
+            <span></span>
           </button>
         </div>
       </div>
@@ -233,19 +234,34 @@ export const Header = () => {
       .mobile-menu-toggle {
         display: none;
         flex-direction: column;
-        gap: 6px;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
         background: none;
         border: none;
         cursor: pointer;
-        padding: 0.5rem;
+        /* iOS推奨タップ領域 44x44px 確保 */
+        padding: 0.6rem;
+        min-width: 44px;
+        min-height: 44px;
+        /* 確実に前面に出す */
+        position: relative;
+        z-index: 201;
       }
 
       .mobile-menu-toggle span {
         display: block;
-        width: 24px;
-        height: 2px;
-        background-color: var(--color-text-primary);
+        width: 26px;
+        /* 2px→3px: 細すぎて描画されない端末対策 */
+        height: 3px;
+        background-color: #3d3b38;
+        /* CSS変数が効かない端末向けにフォールバック */
+        background-color: var(--color-text-primary, #3d3b38);
+        border-radius: 2px;
         transition: all 0.3s ease;
+        /* 確実に表示 */
+        opacity: 1;
+        visibility: visible;
       }
 
       /* ================================================================
@@ -288,7 +304,7 @@ export const Header = () => {
 
         .mobile-menu-toggle {
           display: flex;
-          z-index: 101;
+          z-index: 201;
         }
 
         .nav {
@@ -298,6 +314,8 @@ export const Header = () => {
           width: 100%;
           height: 100vh;
           background-color: white;
+          /* ハンバーガーより低いz-indexで確実に前面に出す */
+          z-index: 200;
           display: flex;
           justify-content: center;
           align-items: center;
