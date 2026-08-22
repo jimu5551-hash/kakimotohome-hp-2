@@ -32,7 +32,7 @@ export const StickyFooter = () => {
         bottom: 8.8rem;
         right: 2rem;
         z-index: 998;
-        width: 260px;
+        width: 320px;
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
