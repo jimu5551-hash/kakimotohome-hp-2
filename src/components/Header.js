@@ -13,6 +13,7 @@ export const Header = () => {
             <li class="nav-item"><a href="#philosophy" class="nav-link">私たちについて</a></li>
             <li class="nav-item"><a href="#services" class="nav-link">事業案内</a></li>
             <li class="nav-item"><a href="#company" class="nav-link">会社概要</a></li>
+            <li class="nav-item"><a href="https://tenshoku.mynavi.jp/jobinfo-471574-1-1-1/" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-recruit">採用情報</a></li>
             <li class="header-contact nav-only-contact">
                 <a href="tel:0120-654-711" class="header-tel">
                     <span class="tel-top-row">
@@ -85,7 +86,7 @@ export const Header = () => {
       /* ---- Navigation ---- */
       .nav-list {
         display: flex;
-        gap: clamp(0.8rem, 1.5vw, 2rem);   /* flexible gap */
+        gap: clamp(0.5rem, 1.1vw, 1.4rem);   /* flexible gap, tightened to balance logo */
         align-items: center;
         flex-wrap: nowrap;                   /* NEVER wrap */
       }
@@ -211,6 +212,21 @@ export const Header = () => {
       .btn-header:hover {
          background-color: #c27a1f; 
          transform: translateY(-2px);
+      }
+
+      /* 採用情報リンク - アクセントカラー枠付き */
+      .nav-link-recruit {
+        border: 1.5px solid var(--color-accent);
+        color: var(--color-accent) !important;
+        padding: 0.35rem 0.8rem;
+        border-radius: 4px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link-recruit:hover {
+        background-color: var(--color-accent);
+        color: #fff !important;
       }
 
       /* ---- Mobile Hamburger Toggle ---- */
