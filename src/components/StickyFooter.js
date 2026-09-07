@@ -1,5 +1,13 @@
 export const StickyFooter = () => {
   return `
+    <!-- Subsidy Floating Banner -->
+    <div class="floating-subsidy-banner" id="subsidyBanner">
+      <button class="subsidy-banner-close" aria-label="閉じる" onclick="document.getElementById('subsidyBanner').style.display='none'">✕</button>
+      <a href="/#contact" class="subsidy-banner-link">
+        <img src="/補助金バナー画像20260614.jfif" alt="住宅省エネ2026キャンペーン 補助金リフォーム" class="subsidy-banner-img" />
+      </a>
+    </div>
+
     <!-- Desktop Floating Phone Button -->
     <a href="tel:0120-654-711" class="floating-phone-btn" aria-label="電話で問い合わせ">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="floating-phone-svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
@@ -21,6 +29,62 @@ export const StickyFooter = () => {
       </div>
     </div>
     <style>
+      /* Subsidy Floating Banner */
+      .floating-subsidy-banner {
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        z-index: 997;
+        width: 340px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        border-radius: 12px;
+        overflow: visible;
+        background: white;
+        transition: all 0.3s ease;
+      }
+      
+      .floating-subsidy-banner:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      }
+      
+      .subsidy-banner-link {
+        display: block;
+        cursor: pointer;
+      }
+      
+      .subsidy-banner-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+      }
+      
+      .subsidy-banner-close {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 24px;
+        height: 24px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        z-index: 10;
+        transition: all 0.2s;
+      }
+      
+      .subsidy-banner-close:hover {
+        background-color: #d88d2d;
+        transform: scale(1.1);
+      }
+
       /* Floating Phone Button - Desktop */
       .floating-phone-btn {
         position: fixed;
@@ -165,6 +229,13 @@ export const StickyFooter = () => {
         
         body {
           padding-bottom: 80px; 
+        }
+
+        .floating-subsidy-banner {
+          left: 1rem;
+          bottom: 5.5rem;
+          width: 220px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
       }
     </style>
