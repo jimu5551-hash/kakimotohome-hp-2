@@ -7,6 +7,17 @@ export const News = () => {
         <div class="news-container fade-up delay-100">
           <div class="news-list">
             
+            <a href="https://www.homepro.jp/kaisha/325246/" target="_blank" rel="noopener noreferrer" class="news-item">
+              <div class="news-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div class="news-date">2026/07/09</div>
+              <div class="news-title">【受賞】ホームプロAWARD「2025年度顧客満足優良会社」と<span style="display: block; margin-top: 0.25rem;">営業担当3名は「顧客満足優良担当者」を受賞しました</span></div>
+            </a>
+
             <a href="/#sh-kitchen-reform" class="news-item">
               <div class="news-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -117,7 +128,7 @@ export const News = () => {
 
       .news-item {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         padding: 1.5rem 0;
         border-bottom: 1px dotted var(--color-border);
         transition: all 0.3s ease;
@@ -141,6 +152,7 @@ export const News = () => {
         margin-right: 1.5rem;
         display: flex;
         align-items: center;
+        margin-top: 0.2rem;
       }
 
       .news-date {
@@ -150,6 +162,7 @@ export const News = () => {
         font-weight: 500;
         min-width: 100px;
         font-size: 0.9rem;
+        margin-top: 0.2rem;
       }
 
       .news-title {

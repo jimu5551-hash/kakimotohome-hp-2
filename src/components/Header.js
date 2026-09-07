@@ -13,6 +13,7 @@ export const Header = () => {
             <li class="nav-item"><a href="#philosophy" class="nav-link">私たちについて</a></li>
             <li class="nav-item"><a href="#services" class="nav-link">事業案内</a></li>
             <li class="nav-item"><a href="#company" class="nav-link">会社概要</a></li>
+            <li class="nav-item"><a href="https://tenshoku.mynavi.jp/jobinfo-471574-1-1-1/" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-recruit">採用情報</a></li>
             <li class="header-contact nav-only-contact">
                 <a href="tel:0120-654-711" class="header-tel">
                     <span class="tel-top-row">
@@ -35,7 +36,8 @@ export const Header = () => {
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="tel-phone-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             <span class="mobile-tel-number">0120-654-711</span>
           </a>
-          <button class="mobile-menu-toggle" aria-label="メニューを開く">
+          <button type="button" class="mobile-menu-toggle" id="hamburger-btn" aria-label="メニューを開く" aria-expanded="false">
+            <span></span>
             <span></span>
             <span></span>
           </button>
@@ -51,12 +53,17 @@ export const Header = () => {
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 100;
+        /* StickyFooter(998〜999)・FullGallery(1000〜1001)より必ず上に出る */
+        z-index: 2000;
         background-color: rgba(255, 255, 255, 0.95);
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         padding: 0.75rem 0;
-        transition: all 0.3s ease;
+        /* iOS Safariバグ対応: transition:allは固定要素の描画を米らすため個別指定 */
+        transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        /* GPU合成層を強制し子要素の描画を安定化 */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
       }
 
       .header-container {
@@ -67,6 +74,8 @@ export const Header = () => {
         justify-content: space-between;
         align-items: center;
         gap: clamp(0.5rem, 1.5vw, 1.5rem);
+        /* iOS Safari: クリップを防いでハンバーガーが素透かしになることを防ぐ */
+        overflow: visible;
       }
 
       /* ---- Logo ---- */
@@ -85,7 +94,7 @@ export const Header = () => {
       /* ---- Navigation ---- */
       .nav-list {
         display: flex;
-        gap: clamp(0.8rem, 1.5vw, 2rem);   /* flexible gap */
+        gap: clamp(0.5rem, 1.1vw, 1.4rem);   /* flexible gap, tightened to balance logo */
         align-items: center;
         flex-wrap: nowrap;                   /* NEVER wrap */
       }
@@ -213,36 +222,80 @@ export const Header = () => {
          transform: translateY(-2px);
       }
 
+      /* 採用情報リンク - アクセントカラー枠付き */
+      .nav-link-recruit {
+        border: 1.5px solid var(--color-accent);
+        color: var(--color-accent) !important;
+        padding: 0.35rem 0.8rem;
+        border-radius: 4px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link-recruit:hover {
+        background-color: var(--color-accent);
+        color: #fff !important;
+      }
+
       /* ---- Mobile Hamburger Toggle ---- */
       .mobile-menu-toggle {
         display: none;
         flex-direction: column;
-        gap: 6px;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
         background: none;
         border: none;
+        /* iOS Safari: クリッカブル要素と認識させる */
         cursor: pointer;
-        padding: 0.5rem;
+        /* iOS推奨タップ領域 44x44px */
+        padding: 0.6rem;
+        min-width: 44px;
+        min-height: 44px;
+        /* iOS Safari: 300ms遷延を排除しタップを即座に発火 */
+        touch-action: manipulation;
+        /* iOS Safari: タップ時の青いハイライトを制御 */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        /* タップ時のテキスト選択を禁止 */
+        -webkit-user-select: none;
+        user-select: none;
+        /* iOS Safari 外観リセット */
+        -webkit-appearance: none;
+        appearance: none;
+        /* pointer-eventsを明示的に指定（被覆い要素でブロックされないように） */
+        pointer-events: auto;
+        /* GPUレイヤーで描画を強制 */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        position: relative;
+        z-index: 2001;
       }
 
       .mobile-menu-toggle span {
         display: block;
-        width: 24px;
-        height: 2px;
-        background-color: var(--color-text-primary);
-        transition: all 0.3s ease;
+        width: 26px;
+        height: 3px;
+        background-color: #3d3b38;
+        background-color: var(--color-text-primary, #3d3b38);
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: none; /* 子要素へのイベントを親に委譲 */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
       }
 
-      /* ================================================================
-         BREAKPOINT: Switch to hamburger menu at 1200px
-         This is intentionally wider than typical to prevent any
-         text-wrapping on mid-size screens with larger font rendering.
-         ================================================================ */
-      /* --- Mobile phone + hamburger group --- */
+      /* ---- Mobile phone + hamburger group ---- */
       .header-right-mobile {
-        display: none;  /* hidden on desktop */
+        display: none;
         align-items: center;
         gap: 0.8rem;
         flex-shrink: 0;
+        /* iOS Safari: GPUレイヤーでコンテナの描画を安定化 */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        overflow: visible;
       }
 
       .mobile-tel {
@@ -265,14 +318,21 @@ export const Header = () => {
         flex-shrink: 0;
       }
 
-      @media (max-width: 960px) {
+      /* ================================================================
+         BREAKPOINT: max-width: 1280px でハンバーガーに切替
+         960px → 1280pxに引き上げた理由:
+         iPhone Safariの「デスクトップ用Webサイトを表示」モードの
+         viewport幅が紈4980pxのため、960pxブレークポイントでは
+         ハンバーガーが出なかった
+         ================================================================ */
+      @media (max-width: 1280px) {
         .header-right-mobile {
           display: flex;
         }
 
         .mobile-menu-toggle {
           display: flex;
-          z-index: 101;
+          z-index: 2001;
         }
 
         .nav {
@@ -282,6 +342,8 @@ export const Header = () => {
           width: 100%;
           height: 100vh;
           background-color: white;
+          /* ヘッダー(2000)より低く、StickyFooter(999)より高く */
+          z-index: 1950;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -354,11 +416,21 @@ export const Header = () => {
 
       @media (max-width: 768px) {
         .logo-img {
-          height: 50px;
+          height: 44px;
         }
         
         .header-container {
-          padding: 0 1rem;
+          padding: 0 0.8rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo-img {
+          height: 38px;
+        }
+
+        .mobile-tel-number {
+          font-size: 0.95rem;
         }
       }
     </style>

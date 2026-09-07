@@ -4,7 +4,7 @@ export const StickyFooter = () => {
     <div class="floating-subsidy-banner" id="subsidyBanner">
       <button class="subsidy-banner-close" aria-label="閉じる" onclick="document.getElementById('subsidyBanner').style.display='none'">✕</button>
       <a href="/#contact" class="subsidy-banner-link">
-        <img src="/補助金バナー画像20260614.jfif" alt="住宅省エネ2026キャンペーン 補助金リフォーム" class="subsidy-banner-img" />
+        <img src="/campaign-banner.jpg" alt="住宅省エネ2026キャンペーン 補助金リフォーム" class="subsidy-banner-img" />
       </a>
     </div>
 
